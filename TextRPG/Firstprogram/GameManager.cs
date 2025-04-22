@@ -100,7 +100,6 @@ class GameManager // 위치별 정보
             {
                 case "0": // 나가기
                     loop = false; // 반복 끝
-                    Home(player); // 메인 화면으로
                     break;
 
                 default: // "0" 이외 다른 문자를 입력할 시
@@ -144,7 +143,7 @@ class GameManager // 위치별 정보
             {
                 case "0": // 나가기
                     loop = false; // 반복 끝
-                    Home(player);
+                    Home(player); // 메인 화면으로
                     break;
 
                 case "1": // 장착 관리
@@ -283,7 +282,6 @@ class GameManager // 위치별 정보
             {
                 case "0": // 나가기
                     loop = false; // 반복 끝
-                    Home(player); // 메인으로
                     break;
 
                 case "1": // 아이템 구매
@@ -605,7 +603,6 @@ class GameManager // 위치별 정보
             {
                 case "0": // 나가기
                     loop = false;
-                    Home(player); // 마을로 이동
                     break;
 
                 case "1": // 쉬운 던전
@@ -622,7 +619,6 @@ class GameManager // 위치별 정보
                             player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 1000G + 추가 보상
                             player.clearCount++; // 클리어 횟수 + 1
                             stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
-                            Stage(player); // 던전으로 이동
                         }
                         else // 내 방어력 <  던전 권장 방어력
                         {
@@ -633,7 +629,6 @@ class GameManager // 위치별 정보
                                 player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 1000G + 추가 보상
                                 player.clearCount++; // 클리어 횟수 + 1
                                 stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
-                                Stage(player); // 던전으로 이동
                             }
                             else // 아닐 때
                             {
@@ -660,7 +655,6 @@ class GameManager // 위치별 정보
                             player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 1700G + 추가 보상
                             player.clearCount++; // 클리어 횟수 + 1
                             stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
-                            Stage(player); // 던전으로 이동
                         }
                         else // 내 방어력 <  던전 권장 방어력
                         {
@@ -671,7 +665,6 @@ class GameManager // 위치별 정보
                                 player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 1700G + 추가 보상
                                 player.clearCount++; // 클리어 횟수 + 1
                                 stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
-                                Stage(player); // 던전으로 이동
                             }
                             else // 아닐 때
                             {
@@ -698,7 +691,6 @@ class GameManager // 위치별 정보
                             player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 2500G + 추가 보상
                             player.clearCount++; // 클리어 횟수 + 1
                             stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동                 
-                            Stage(player); // 던전으로 이동
                         }
                         else // 내 방어력 <  던전 권장 방어력
                         {
@@ -709,7 +701,6 @@ class GameManager // 위치별 정보
                                 player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 2500G + 추가 보상
                                 player.clearCount++; // 클리어 횟수 + 1
                                 stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
-                                Stage(player); // 던전으로 이동
                             }
                             else // 아닐 때
                             {
@@ -741,14 +732,14 @@ class GameManager // 위치별 정보
             Console.Write("\n원하시는 행동을 입력해주세요.\n>> ");
 
             string input = Console.ReadLine();
-            if (player.Hp > 0)
+
+            if (player.Hp > 0) // 현재 체력 > 0
             {
                 switch (input)
                 {
                     case "0":
                         loop = false;
                         Level(player); // 레벨 업
-                        Stage(player); // 던전으로 이동
                         break;
 
                     default:
@@ -756,15 +747,15 @@ class GameManager // 위치별 정보
                         break;
                 }
             }
-            else
+            else // 현재 체력 = 0
             {
                 loop = false;
-                End(player);
+                End(player); // 죽음의 엔딩으로 이동
             }
         } while (loop);
     }
 
-    public void stageFail(Player player, int hpDecre) // 던전 클리어 실패
+    public void stageFail(Player player, int hpDecre) // 4.2 던전 클리어 실패
     {
         bool loop = true;
 
@@ -780,13 +771,12 @@ class GameManager // 위치별 정보
 
             string input = Console.ReadLine();
 
-            if (player.Hp > 0)
+            if (player.Hp > 0) // 현재 체력 > 0
             {
                 switch (input)
                 {
                     case "0":
                         loop = false;
-                        Stage(player); // 던전으로 이동
                         break;
 
                     default:
@@ -794,10 +784,10 @@ class GameManager // 위치별 정보
                         break;
                 }
             }
-            else
+            else // 현재 체력 = 0
             {
                 loop = false;
-                End(player);
+                End(player); // 죽음의 엔딩으로 이동
             }
         } while (loop);
     }
@@ -820,7 +810,6 @@ class GameManager // 위치별 정보
             {
                 case "0":
                     loop = false;
-                    Home(player); // 마을로 이동
                     break;
 
                 case "1":
@@ -854,7 +843,6 @@ class GameManager // 위치별 정보
             player.Lv = 2;
             player.Att += 0.5f;
             player.Df += 1;
-
             Message($"\nLV: {(player.Lv) - 1} -> {player.Lv}\n공격력: {player.Att - 0.5f} -> {player.Att}\n방어력: {player.Df - 1} -> {player.Df}"); // 레벨업 문구
         }
         else if (player.clearCount == 3)
@@ -862,7 +850,6 @@ class GameManager // 위치별 정보
             player.Lv = 3;
             player.Att += 0.5f;
             player.Df += 1;
-
             Message($"\nLV: {(player.Lv) - 1} -> {player.Lv}\n공격력: {player.Att - 0.5f} -> {player.Att}\n방어력: {player.Df - 1} -> {player.Df}"); // 레벨업 문구
         }
         else if (player.clearCount == 6)
@@ -870,7 +857,6 @@ class GameManager // 위치별 정보
             player.Lv = 4;
             player.Att += 0.5f;
             player.Df += 1;
-
             Message($"\nLV: {(player.Lv) - 1} -> {player.Lv}\n공격력: {player.Att - 0.5f} -> {player.Att}\n방어력: {player.Df - 1} -> {player.Df}"); // 레벨업 문구
         }
         else if (player.clearCount == 10)
@@ -878,9 +864,8 @@ class GameManager // 위치별 정보
             player.Lv = 5;
             player.Att += 0.5f;
             player.Df += 1;
-
             Message($"\nLV: {(player.Lv) - 1} -> {player.Lv}\n공격력: {player.Att - 0.5f} -> {player.Att}\n방어력: {player.Df - 1} -> {player.Df}"); // 레벨업 문구
-        }
+        }   
     }
 
     public void End(Player player) // 죽었을 때 (게임 리셋)
@@ -904,7 +889,7 @@ class GameManager // 위치별 정보
     static void Message(string msg) // 확인용 메세지
     {
         Console.WriteLine($"\n{msg}\n"); // 문구 출력
-        Console.WriteLine("아무키를 누르세요.\n");
-        Console.ReadKey(); // 아무키 입력 받기
+        Console.WriteLine("아무 키를 누르세요.\n");
+        Console.ReadKey(); // 아무 키 입력 받기
     }
 }
