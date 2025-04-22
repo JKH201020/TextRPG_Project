@@ -30,17 +30,14 @@ class GameManager // 위치별 정보
             {
                 case "1": // 상태 보기
                     Status(player);
-                    Home(player); // 재귀함수(자신이 자신을 호출)를 이용
                     break;
 
                 case "2": // 인벤토리 이동
                     Inventory(player);
-                    Home(player); // 인벤토리 확인 후 다시 메인 화면으로 돌아옴
                     break;
 
                 case "3": // 상점 이동
                     Shop(player);
-                    Home(player); // 상점 이용 후 다시 메인 화면으로 돌아옴
                     break;
 
                 case "4": // 던전 이동
@@ -49,12 +46,10 @@ class GameManager // 위치별 정보
 
                 case "5": // 휴식으로 이동
                     Rest(player);
-                    Home(player); // 휴식 후 다시 메인 화면으로 돌아옴
                     break;
 
                 default: // 1 ~ 3 이외의 문자를 입력할 시
                     Message("잘못된 입력입니다.");
-                    Home(player); // 잘못된 입력 후 다시 메인 화면으로 돌아옴
                     break;
             }
         } while (loop); // 반복
