@@ -622,23 +622,23 @@ class GameManager // 위치별 정보
 
                         if (player.Df >= stageDf) // 내 방어력 >=  던전 권장 방어력
                         {
-                            loop = false;
                             hpDecre = rand.Next(20 - (player.Df - stageDf), 36 - (player.Df - stageDf)); // 20 - (내 방어력 - 권장 방어력) ~ 35 - (내 방어력 - 권장 방어력) 랜덤 체력 감소
                             player.Hp -= hpDecre; // 랜덤으로 체력 감소
                             player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 1000G + 추가 보상
                             player.clearCount++; // 클리어 횟수 + 1
                             stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
+                            Stage(player); // 던전으로 이동
                         }
                         else // 내 방어력 <  던전 권장 방어력
                         {
                             if (clearProb >= 41) // 41% 이상일 때 클리어
                             {
-                                loop = false;
                                 hpDecre = rand.Next(20 - (player.Df - stageDf), 36 - (player.Df - stageDf)); // 20 - (내 방어력 - 권장 방어력) ~ 35 - (내 방어력 - 권장 방어력) 랜덤 체력 감소
                                 player.Hp -= hpDecre; // 랜덤으로 체력 감소
                                 player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 1000G + 추가 보상
                                 player.clearCount++; // 클리어 횟수 + 1
                                 stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
+                                Stage(player); // 던전으로 이동
                             }
                             else // 아닐 때
                             {
@@ -660,23 +660,23 @@ class GameManager // 위치별 정보
 
                         if (player.Df >= stageDf) // 내 방어력 >=  던전 권장 방어력
                         {
-                            loop = false;
                             hpDecre = rand.Next(20 - (player.Df - stageDf), 36 - (player.Df - stageDf)); // 20 - (내 방어력 - 권장 방어력) ~ 35 - (내 방어력 - 권장 방어력) 랜덤 체력 감소
                             player.Hp -= hpDecre; // 랜덤으로 체력 감소
                             player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 1700G + 추가 보상
                             player.clearCount++; // 클리어 횟수 + 1
                             stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
+                            Stage(player); // 던전으로 이동
                         }
                         else // 내 방어력 <  던전 권장 방어력
                         {
                             if (clearProb >= 41) // 41% 이상일 때 클리어
                             {
-                                loop = false;
                                 hpDecre = rand.Next(20 - (player.Df - stageDf), 36 - (player.Df - stageDf)); // 20 - (내 방어력 - 권장 방어력) ~ 35 - (내 방어력 - 권장 방어력) 랜덤 체력 감소
                                 player.Hp -= hpDecre; // 랜덤으로 체력 감소
                                 player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 1700G + 추가 보상
                                 player.clearCount++; // 클리어 횟수 + 1
                                 stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
+                                Stage(player); // 던전으로 이동
                             }
                             else // 아닐 때
                             {
@@ -698,23 +698,23 @@ class GameManager // 위치별 정보
 
                         if (player.Df >= stageDf) // 내 방어력 >=  던전 권장 방어력
                         {
-                            loop = false;
                             hpDecre = rand.Next(20 - (player.Df - stageDf), 36 - (player.Df - stageDf)); // 20 - (내 방어력 - 권장 방어력) ~ 35 - (내 방어력 - 권장 방어력) 랜덤 체력 감소
                             player.Hp -= hpDecre; // 랜덤으로 체력 감소
                             player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 2500G + 추가 보상
                             player.clearCount++; // 클리어 횟수 + 1
                             stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동                 
+                            Stage(player); // 던전으로 이동
                         }
                         else // 내 방어력 <  던전 권장 방어력
                         {
                             if (clearProb >= 41) // 41% 이상일 때 클리어
                             {
-                                loop = false;
                                 hpDecre = rand.Next(20 - (player.Df - stageDf), 36 - (player.Df - stageDf)); // 20 - (내 방어력 - 권장 방어력) ~ 35 - (내 방어력 - 권장 방어력) 랜덤 체력 감소
                                 player.Hp -= hpDecre; // 랜덤으로 체력 감소
                                 player.Gold += reward + (int)(reward * ((float)addReward / 100)); // 클리어시 2500G + 추가 보상
                                 player.clearCount++; // 클리어 횟수 + 1
                                 stageClear(player, stageName, reward, addReward, hpDecre); // 클리어 창으로 이동
+                                Stage(player); // 던전으로 이동
                             }
                             else // 아닐 때
                             {
