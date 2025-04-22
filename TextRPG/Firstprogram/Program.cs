@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Data;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Firstprogram
 {
@@ -6,6 +7,8 @@ namespace Firstprogram
     {
         static void Main(string[] args) // main문
         {
+            Console.Clear();
+
             GameManager h = new GameManager();
             Player player = new Player();
 

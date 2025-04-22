@@ -6,10 +6,11 @@ class Player // 플레이어 클래스
     public string Name { get; set; } // 이름을 받아옴
     public string Chad { get; set; } // 직업 받아옴
     public int Lv { get; set; } // 레벨 받아옴
-    public int Att { get; set; } // 공격력 받아옴
+    public float Att { get; set; } // 공격력 받아옴
     public int Df { get; set; } // 방어력 받아옴
     public int Hp { get; set; } // 체력 받아옴
     public int Gold { get; set; } // 돈 받아옴
+    public int clearCount { get; set; } // 던전 클리어 횟수 받아오기
     public List<Item> InvenItem { get; set; } // 내 아이템 목록 받아옴
 
     public Player() // 플레이어 정보
@@ -21,6 +22,7 @@ class Player // 플레이어 클래스
         Df = 5; // 방어력
         Hp = 100; // 체력
         Gold = 1500; // 돈
+        clearCount = 0; // 던전 클리어 횟수
         InvenItem = new List<Item>(); // 내 아이템 리스트 생성
     }
 
@@ -36,7 +38,7 @@ class Player // 플레이어 클래스
 
     public void UnE(Item item) // 장착 해제
     {
-        if (item.itemEquip) // 장착 안했을 때
+        if (item.itemEquip) // 장착 했을 때
         {
             item.itemEquip = false; // 해제
             Att -= item.itemAtt; // 플레이어 공격력 - 무기 공격력
